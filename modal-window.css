@@ -29,14 +29,14 @@
 	text-align:center;
 }
 
-.modalCloseButton {
+.modalEscButton {
 	float:right;
 	position:absolute;
 	top:10px;
 	left:92%;
 	height:25px;
 }
-.modalCloseButton img {
+.modalEscButton img {
 	border:0;
 }
 

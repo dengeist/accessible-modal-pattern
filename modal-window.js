@@ -53,7 +53,7 @@ $(function() {
     jQuery('#enter').click(function(e) {
         enterButtonModal();
     });
-    jQuery('#modalCloseButton').click(function(e) {
+    jQuery('#modalEscButton').click(function(e) {
         hideModal();
     });
     jQuery('#modal').keydown(function(event) {
@@ -79,7 +79,7 @@ function trapEscapeKey(obj, evt) {
 
         // get list of focusable items
         var cancelElement;
-        cancelElement = o.filter("#modalCloseButton")
+        cancelElement = o.filter("#modalEscButton")
 
         // close the modal window
         cancelElement.click();
