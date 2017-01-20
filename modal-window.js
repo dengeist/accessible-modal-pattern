@@ -57,10 +57,14 @@ $(function() {
         hideModal();
     });
     jQuery('#modal').keydown(function(event) {
-        trapTabKey($(this), event);
-    })
-    jQuery('#modal').keydown(function(event) {
-        trapEscapeKey($(this), event);
+        // if tab or shift-tab pressed
+        if (event.which === 9) {
+            trapTabKey($(this), event);
+        }
+        // if escape pressed
+        if (event.which === 27) {
+            trapEscapeKey($(this), event);
+        }
     })
 
 });
