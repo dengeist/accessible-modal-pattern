@@ -42,9 +42,9 @@ var focusedElementBeforeModal;
 
 $(function() {
 
-
     jQuery('#startModal').click(function(e) {
-        showModal($modalWindow);
+        showModal(jQuery('#modal'));
+        setInitialFocusModal(jQuery('#modal'));
     });
 
     jQuery('#cancelButton').click(function(e) {
@@ -80,7 +80,7 @@ function trapEscapeKey(obj, evt) {
 
     // close the modal window
     escElement.click();
-    evt.preventDefault();    
+    evt.preventDefault();
 }
 
 function trapTabKey(obj, evt) {
