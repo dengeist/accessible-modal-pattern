@@ -41,12 +41,12 @@ var focusableElementsString = "a[href], area[href], input:not([disabled]), selec
 var focusedElementBeforeModal;
 
 $(function() {
+
+
     jQuery('#startModal').click(function(e) {
-        showModal($('#modal'));
+        showModal($modalWindow);
     });
-    jQuery('#cancel').click(function(e) {
-        hideModal();
-    });
+
     jQuery('#cancelButton').click(function(e) {
         hideModal();
     });
@@ -79,7 +79,7 @@ function trapEscapeKey(obj, evt) {
 
         // get list of focusable items
         var cancelElement;
-        cancelElement = o.filter("#cancel")
+        cancelElement = o.filter("#modalCloseButton")
 
         // close the modal window
         cancelElement.click();
