@@ -51,7 +51,7 @@ $(function() {
         hideModal();
     });
     jQuery('#enter').click(function(e) {
-        enterButtonModal();
+        handleSubmit();
     });
     jQuery('#modalEscButton').click(function(e) {
         hideModal();
@@ -142,7 +142,7 @@ function setInitialFocusModal(obj) {
 
 }
 
-function enterButtonModal() {
+function handleSubmit() {
     // BEGIN logic for executing the Enter button action for the modal window
     alert('form submitted');
     // END logic for executing the Enter button action for the modal window
