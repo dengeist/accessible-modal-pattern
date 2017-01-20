@@ -34,54 +34,28 @@
 
  */
 
-// jQuery formatted selector to search for focusable items
-var focusableElementsString = "a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]";
+/* Set of functions for handling modal behavior */
 
-// store the item that has focus before opening the modal window
-var focusedElementBeforeModal;
+function showModal(obj) {
+    jQuery('#mainPage').prop({'aria-hidden': true}); // mark the main page as hidden
+    jQuery('#modalOverlay').css('display', 'block'); // insert an overlay to prevent clicking and make a visual change to indicate the main apge is not available
+    jQuery('#modal').css('display', 'block'); // make the modal window visible
+    jQuery('#modal').prop({'aria-hidden': false, 'hidden': false}); // mark the modal window as visible
 
-$(function() {
-
-    jQuery('#startModal').click(function(e) {
-        showModal(jQuery('#modal'));
-        setInitialFocusModal(jQuery('#modal'));
+    // attach a listener to redirect the tab to the modal window if the user somehow gets out of the modal window
+    jQuery('body').on('focusin','#mainPage',function() {
+        setFocusToFirstItemInModal(jQuery('#modal'));
     });
+}
 
-    jQuery('#cancelBtn').click(function(e) {
-        hideModal();
-    });
-    jQuery('#enterBtn').click(function(e) {
-        handleSubmit();
-    });
-    jQuery('#modalEscButton').click(function(e) {
-        hideModal();
-    });
-    jQuery('#modal').keydown(function(event) {
-        // if tab or shift-tab pressed
-        if (event.which === 9) {
-            trapTabKey($(this), event);
-        }
-        // if escape pressed
-        if (event.which === 27) {
-            trapEscapeKey($(this), event);
-        }
-    });
-
-});
-
-function trapEscapeKey(obj, evt) {
-
+function setFocusToFirstItemInModal(obj){
     // get list of all children elements in given object
     var o = obj.find('*');
 
-    // get list of focusable items
-    var escElement;
-    escElement = o.filter("#modalEscButton");
-
-    // close the modal window
-    escElement.click();
-    evt.preventDefault();
+    // set the focus to the first keyboard focusable item
+    o.filter(focusableElementsString).filter(':visible').first().focus();
 }
+
 
 function trapTabKey(obj, evt) {
 
@@ -122,14 +96,18 @@ function trapTabKey(obj, evt) {
     }
 }
 
-function setInitialFocusModal(obj) {
+function trapEscapeKey(obj, evt) {
+
     // get list of all children elements in given object
     var o = obj.find('*');
 
-    // set focus to first focusable item
-    var focusableItems;
-    focusableItems = o.filter(focusableElementsString).filter(':visible').first().focus();
+    // get list of focusable items
+    var escElement;
+    escElement = o.filter("#modalEscButton");
 
+    // close the modal window
+    escElement.click();
+    evt.preventDefault();
 }
 
 function handleSubmit() {
@@ -139,24 +117,6 @@ function handleSubmit() {
     hideModal();
 }
 
-function setFocusToFirstItemInModal(obj){
-    // get list of all children elements in given object
-    var o = obj.find('*');
-
-    // set the focus to the first keyboard focusable item
-    o.filter(focusableElementsString).filter(':visible').first().focus();
-}
-
-function showModal(obj) {
-    jQuery('#mainPage').prop({'aria-hidden': true}); // mark the main page as hidden
-    jQuery('#modalOverlay').css('display', 'block'); // insert an overlay to prevent clicking and make a visual change to indicate the main apge is not available
-    jQuery('#modal').css('display', 'block'); // make the modal window visible
-    jQuery('#modal').prop({'aria-hidden': false, 'hidden': false}); // mark the modal window as visible
-
-    // attach a listener to redirect the tab to the modal window if the user somehow gets out of the modal window
-    jQuery('body').on('focusin','#mainPage',function() {
-        setFocusToFirstItemInModal(jQuery('#modal'));
-    });
 
     // save current focus
     focusedElementBeforeModal = jQuery(':focus');
@@ -176,3 +136,38 @@ function hideModal() {
     // set focus back to element that had it before the modal was opened
     focusedElementBeforeModal.focus();
 }
+
+/* End modal behavior functions */
+
+// jQuery formatted selector to search for focusable items
+var focusableElementsString = "a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]";
+
+// store the item that has focus before opening the modal window
+var focusedElementBeforeModal;
+
+$(function() {
+
+    jQuery('#startModal').click(function(e) {
+        showModal(jQuery('#modal'));
+    });
+
+    jQuery('#cancelBtn').click(function(e) {
+        hideModal();
+    });
+    jQuery('#enterBtn').click(function(e) {
+        handleSubmit();
+    });
+    jQuery('#modalEscButton').click(function(e) {
+        hideModal();
+    });
+    jQuery('#modal').keydown(function(event) {
+        // if tab or shift-tab pressed
+        if (event.which === 9) {
+            trapTabKey($(this), event);
+        }
+        // if escape pressed
+        if (event.which === 27) {
+            trapEscapeKey($(this), event);
+        }
+    });
+});
