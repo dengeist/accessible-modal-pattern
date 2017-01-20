@@ -46,6 +46,9 @@ function showModal(obj) {
     jQuery('body').on('focusin','#mainPage',function() {
         setFocusToFirstItemInModal(jQuery('#modal'));
     });
+    // save current focus
+    focusedElementBeforeModal = jQuery(':focus');
+    setFocusToFirstItemInModal(obj);
 }
 
 function setFocusToFirstItemInModal(obj){
@@ -117,13 +120,6 @@ function handleSubmit() {
     hideModal();
 }
 
-
-    // save current focus
-    focusedElementBeforeModal = jQuery(':focus');
-
-    setFocusToFirstItemInModal(obj);
-}
-
 function hideModal() {
     jQuery('#modalOverlay').css('display', 'none'); // remove the overlay in order to make the main screen available again
     jQuery('#modal').css('display', 'none'); // hide the modal window
@@ -145,7 +141,7 @@ var focusableElementsString = "a[href], area[href], input:not([disabled]), selec
 // store the item that has focus before opening the modal window
 var focusedElementBeforeModal;
 
-$(function() {
+jQuery(function() {
 
     jQuery('#startModal').click(function(e) {
         showModal(jQuery('#modal'));
