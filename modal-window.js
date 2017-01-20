@@ -71,65 +71,55 @@ $(function() {
 
 function trapEscapeKey(obj, evt) {
 
-    // if escape pressed
-    if (evt.which == 27) {
+    // get list of all children elements in given object
+    var o = obj.find('*');
 
-        // get list of all children elements in given object
-        var o = obj.find('*');
+    // get list of focusable items
+    var escElement;
+    escElement = o.filter("#modalEscButton");
 
-        // get list of focusable items
-        var escElement;
-        escElement = o.filter("#modalEscButton");
-
-        // close the modal window
-        escElement.click();
-        evt.preventDefault();
-    }
-
+    // close the modal window
+    escElement.click();
+    evt.preventDefault();    
 }
 
 function trapTabKey(obj, evt) {
 
-    // if tab or shift-tab pressed
-    if (evt.which == 9) {
+    // get list of all children elements in given object
+    var o = obj.find('*');
 
-        // get list of all children elements in given object
-        var o = obj.find('*');
+    // get list of focusable items
+    var focusableItems;
+    focusableItems = o.filter(focusableElementsString).filter(':visible');
 
-        // get list of focusable items
-        var focusableItems;
-        focusableItems = o.filter(focusableElementsString).filter(':visible');
+    // get currently focused item
+    var focusedItem;
+    focusedItem = jQuery(':focus');
 
-        // get currently focused item
-        var focusedItem;
-        focusedItem = jQuery(':focus');
+    // get the number of focusable items
+    var numberOfFocusableItems;
+    numberOfFocusableItems = focusableItems.length;
 
-        // get the number of focusable items
-        var numberOfFocusableItems;
-        numberOfFocusableItems = focusableItems.length;
+    // get the index of the currently focused item
+    var focusedItemIndex;
+    focusedItemIndex = focusableItems.index(focusedItem);
 
-        // get the index of the currently focused item
-        var focusedItemIndex;
-        focusedItemIndex = focusableItems.index(focusedItem);
+    if (evt.shiftKey) {
+        //back tab
+        // if focused on first item and user preses back-tab, go to the last focusable item
+        if (focusedItemIndex === 0) {
+            focusableItems.get(numberOfFocusableItems - 1).focus();
+            evt.preventDefault();
+        }
 
-        if (evt.shiftKey) {
-            //back tab
-            // if focused on first item and user preses back-tab, go to the last focusable item
-            if (focusedItemIndex === 0) {
-                focusableItems.get(numberOfFocusableItems - 1).focus();
-                evt.preventDefault();
-            }
-
-        } else {
-            //forward tab
-            // if focused on the last item and user preses tab, go to the first focusable item
-            if (focusedItemIndex == numberOfFocusableItems - 1) {
-                focusableItems.get(0).focus();
-                evt.preventDefault();
-            }
+    } else {
+        //forward tab
+        // if focused on the last item and user preses tab, go to the first focusable item
+        if (focusedItemIndex == numberOfFocusableItems - 1) {
+            focusableItems.get(0).focus();
+            evt.preventDefault();
         }
     }
-
 }
 
 function setInitialFocusModal(obj) {
