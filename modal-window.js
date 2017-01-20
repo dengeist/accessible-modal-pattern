@@ -148,10 +148,10 @@ function setFocusToFirstItemInModal(obj){
 }
 
 function showModal(obj) {
-    jQuery('#mainPage').attr('aria-hidden', 'true'); // mark the main page as hidden
+    jQuery('#mainPage').prop({'aria-hidden': true}); // mark the main page as hidden
     jQuery('#modalOverlay').css('display', 'block'); // insert an overlay to prevent clicking and make a visual change to indicate the main apge is not available
     jQuery('#modal').css('display', 'block'); // make the modal window visible
-    jQuery('#modal').attr('aria-hidden', 'false'); // mark the modal window as visible
+    jQuery('#modal').prop({'aria-hidden': false, 'hidden': false}); // mark the modal window as visible
 
     // attach a listener to redirect the tab to the modal window if the user somehow gets out of the modal window
     jQuery('body').on('focusin','#mainPage',function() {
@@ -167,8 +167,8 @@ function showModal(obj) {
 function hideModal() {
     jQuery('#modalOverlay').css('display', 'none'); // remove the overlay in order to make the main screen available again
     jQuery('#modal').css('display', 'none'); // hide the modal window
-    jQuery('#modal').attr('aria-hidden', 'true'); // mark the modal window as hidden
-    jQuery('#mainPage').attr('aria-hidden', 'false'); // mark the main page as visible
+    jQuery('#modal').prop({'aria-hidden': true, 'hidden': true}); // mark the modal window as hidden
+    jQuery('#mainPage').prop({'aria-hidden': false}); // mark the main page as visible
 
     // remove the listener which redirects tab keys in the main content area to the modal
     jQuery('body').off('focusin','#mainPage');
