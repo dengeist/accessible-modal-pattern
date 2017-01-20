@@ -65,7 +65,7 @@ $(function() {
         if (event.which === 27) {
             trapEscapeKey($(this), event);
         }
-    })
+    });
 
 });
 
@@ -79,7 +79,7 @@ function trapEscapeKey(obj, evt) {
 
         // get list of focusable items
         var escElement;
-        escElement = o.filter("#modalEscButton")
+        escElement = o.filter("#modalEscButton");
 
         // close the modal window
         escElement.click();
@@ -98,7 +98,7 @@ function trapTabKey(obj, evt) {
 
         // get list of focusable items
         var focusableItems;
-        focusableItems = o.filter(focusableElementsString).filter(':visible')
+        focusableItems = o.filter(focusableElementsString).filter(':visible');
 
         // get currently focused item
         var focusedItem;
@@ -106,7 +106,7 @@ function trapTabKey(obj, evt) {
 
         // get the number of focusable items
         var numberOfFocusableItems;
-        numberOfFocusableItems = focusableItems.length
+        numberOfFocusableItems = focusableItems.length;
 
         // get the index of the currently focused item
         var focusedItemIndex;
@@ -115,7 +115,7 @@ function trapTabKey(obj, evt) {
         if (evt.shiftKey) {
             //back tab
             // if focused on first item and user preses back-tab, go to the last focusable item
-            if (focusedItemIndex == 0) {
+            if (focusedItemIndex === 0) {
                 focusableItems.get(numberOfFocusableItems - 1).focus();
                 evt.preventDefault();
             }
@@ -166,7 +166,7 @@ function showModal(obj) {
     // attach a listener to redirect the tab to the modal window if the user somehow gets out of the modal window
     jQuery('body').on('focusin','#mainPage',function() {
         setFocusToFirstItemInModal(jQuery('#modal'));
-    })
+    });
 
     // save current focus
     focusedElementBeforeModal = jQuery(':focus');
