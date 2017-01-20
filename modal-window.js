@@ -78,11 +78,11 @@ function trapEscapeKey(obj, evt) {
         var o = obj.find('*');
 
         // get list of focusable items
-        var cancelElement;
-        cancelElement = o.filter("#modalEscButton")
+        var escElement;
+        escElement = o.filter("#modalEscButton")
 
         // close the modal window
-        cancelElement.click();
+        escElement.click();
         evt.preventDefault();
     }
 
