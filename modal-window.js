@@ -47,10 +47,10 @@ $(function() {
         setInitialFocusModal(jQuery('#modal'));
     });
 
-    jQuery('#cancelButton').click(function(e) {
+    jQuery('#cancelBtn').click(function(e) {
         hideModal();
     });
-    jQuery('#enter').click(function(e) {
+    jQuery('#enterBtn').click(function(e) {
         handleSubmit();
     });
     jQuery('#modalEscButton').click(function(e) {
