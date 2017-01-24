@@ -8,7 +8,7 @@
 * [Features](#features)
 * [How to implement](#how-to-implement)
 * [Configurations tested as of version 4.0](#configurations-tested-as-of-version-4.0)
-* How to contribute
+* [How to contribute](#how-to-contribute)
 
 ## What is this?
 
@@ -26,7 +26,10 @@ This section records Krauss's notes on version 4 for posterity, and for comparis
 ### In version 4.0.1
 * The graphical escape button has been reconfigured as an `input type="image"` rather than as an `img` wrapped in a `button`.
 * The event listeners for keyboard input have been simplified.
-* The variables in the JavaScript file have been given better names, to reduce potential reader confusion. 
+* The variables in the JavaScript file have been given better names, to reduce potential reader confusion.
+* This readme now has a table of contents for better usability.
+* The copy in the example modal and this readme have been edited for clarity.
+
 ## Features
 
 This pattern does the following:
@@ -65,3 +68,6 @@ The JavaScript interactivity of this modal relies on jQuery, which is included h
 * VoiceOver in Safari 8.0.8 (9537.71) in OS X 10.10.5: Passed - although `aria-describedby` is not read automatically
 * ChromeVox 45.0.2428.0 in Chrome 45.0.2454.101 in OS X 10.10.5: Passed
 * Orca 3.10.3 in Firefox 39.0 in Ubuntu 14.04: Partial Functionality - does not support aria-hidden and does not announce the `aria-describedby`
+
+## How to contribute
+This project strives to be fully WCAG 2.0 and §509 compliant. Please make note of bugs and accessibility failures on [this project's issues page]().
