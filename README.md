@@ -48,6 +48,13 @@ This pattern does the following:
 * Wraps the contents of the modal in `role="document"`. This is to aid NVDA users so they can more easily browse the contents of the modal. NVDA previously added support for fully browsing the contents of the modal, but it requires the user to switch browsing modes in NVDA. Using `role="document"` automatically puts the user in the mode where they can fully browse the contents.
   * **Note:** `role="document" `is optional and the modal window is still fully functional to all users even when this attribute is left off.
 
+## How to implement
+The quickest way to use this pattern is to copy the modal from the HTML file of this repo and fill it with your own content. Be sure not to change the structure of the three divs that the modal relies on to function, but you can customize the submit, cancel, and close buttons to your liking, as long as they keep the same ID attributes.
+
+CSS styling is, of course, arbitrary. You can customize this modal to fit the design language of your project.
+
+The JavaScript interactivity of this modal relies on jQuery, which is included here for your convenience. 
+
 ## Configurations Tested as of Version 4.0  
 * JAWS 16.0.1925 in IE 11.0.9600.18036 in Windows 8.1: Passed - although aria-describedby is not read automatically
 * NVDA 2015.3 in Firefox 40.0.3 in Windows 8.1: Passed
