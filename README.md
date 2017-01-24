@@ -14,7 +14,7 @@
 
 This pattern demonstrates how to make a modal window as accessible as possible to assistive technology users. Modal windows are especially problematic for screen reader users. Often times the user is able to "escape" the window and interact with other parts of the page when they should not be able to. This is partially due to the way screen reader software interacts with the Web browser.
 
-Credit for the original pattern (and code an documentation up to version 4) to [Greg Krauss](https://github.com/gdkraus). Much of the documentation below is his, with edits by me.
+The original pattern (and code an documentation up to version 4) can be found [on Greg Krauss's GitHub](https://github.com/gdkraus). Unfortunately, it appears as though Krauss has stopped developing his version, so I have turned my fork into its own project. Much of the documentation below was written by Krauss and edited by me.
 
 ## Recent changes
 This section records Krauss's notes on version 4 for posterity, and for comparison to my minor changes in his code.
