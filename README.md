@@ -1,8 +1,10 @@
 # The Incredible Accessible Modal Window
 
 ## Table of Contents
-* [What is this?](#what-is-this?)
-* [What's new in version 4?](#whats-new-in-version-4)
+* [What is this?](#what-is-this)
+* [Recent changes](#recent-changes)
+    * [In version 4](#in-version-4)
+    * [In version 4.0.1](#in-version-4.0.1)
 * [Features](#features)
 * [How to implement](#how-to-implement)
 
@@ -12,12 +14,14 @@ This pattern demonstrates how to make a modal window as accessible as possible t
 
 Credit for the original pattern (and code an documentation up to version 4) to [Greg Krauss](https://github.com/gdkraus). Much of the documentation below is his, with edits by me.
 
-## What's New In Version 4?
+## Recent changes
+This pattern has had some recent significant and minor changes.
+### In version 4
 
 * Due to high demand, the role="document" is added back to the contents of the modal. This makes it so NVDA automatically switches into document reading mode inside of the modal. NVDA had previously let you toggle the reading mode, but since many modals contain items that require document browsing mode, I've added this back in as the default.
 * There is now a check that when the modal window is open, detects any time the #mainPage or any of its contents receives focus and will redirect the focus to the modal window. This was necessary because of the modal window was open and you went to the address bar, if you started tabbing again you would interact with the main page.
-* Both the documentation and the [live demo](http://gdkraus.github.io/accessible-modal-dialog/) now live on GitHub.
 
+### In version 4.0.1
 ## Features
 
 This example implements the following features:
