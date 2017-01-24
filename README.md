@@ -7,6 +7,8 @@
     * [In version 4.0.1](#in-version-4.0.1)
 * [Features](#features)
 * [How to implement](#how-to-implement)
+* [Configurations tested as of version 4.0](#configurations-tested-as-of-version-4.0)
+* How to contribute
 
 ## What is this?
 
