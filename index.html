@@ -3,9 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>The Incredible Accessible Modal Window, Version 3</title>
-    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-    <script src="modal-window.js"></script>
-    <link media="all" rel="stylesheet" href="modal-window.css" />
+    <link href="modal-window.css" media="all" rel="stylesheet" />
 </head>
 
 <body>
@@ -16,12 +14,12 @@
         <h2>The Accessible Modal Window in Action</h2>
         <p>To see this in action, you just need to <button id="startModal">view the modal window</button>. If the modal window works as planned, once the modal window is visible you should not be able to interact with other links on the main page like <a href="https://github.com/">going to the main GitHub page</a>. If you can interact with the page behind the modal window, guidance is given for how to get back to the modal window.</p>
     </div>
-    <div id="modal" aria-hidden="true" aria-labelledby="modalTitle" aria-describedby="modalDescription" role="dialog">
+    <div id="modal" aria-hidden="true" aria-labelledby="modalTitle" aria-describedby="modalDescription" role="dialog" hidden>
         <div role="document">
          <div id="modalDescription" class="screen-reader-offscreen">Beginning of dialog window. It begins with a heading 1 called &quot;Registration Form&quot;. Escape will cancel and close the window. This form does not collect any actual information.</div>
          <h1 id="modalTitle">Registration Form</h1>
          <p>These are the onscreen instructions that are not attached explicitly to a focusable element. Can screen reader users read this text with the virtual cursor?</p>
-         <form name="form1" onSubmit="return false;">
+         <form name="form1" onsubmit="return false;">
             <p>
                <label for="firstName">First Name</label>
                <input type="text" name="firstName" id="firstName">
@@ -35,15 +33,20 @@
                <input type="text" name="email" id="email">
            </p>
            <p>
-               <input type="button" name="button" id="enter" value="Submit">
-               <input type="button" name="cancelButton" id="cancelButton" value="Cancel">
+               <input type="button" name="button" id="enterBtn" value="Submit">
+               <input type="button" name="cancelBtn" id="cancelBtn" value="Cancel">
            </p>
-           <button id="modalCloseButton" class="modalCloseButton" title="Close registration form"><img id="cancel" src="x.png" alt="close the registration form"></button>
+           <input type="image" src="x.png" alt="Close registration form" id="modalEscButton" class="modalEscButton" title="Close registration form">
 
        </form>
    </div>
 </div>
 <div id="modalOverlay" tabindex="-1"></div>
 
+<script
+  src="http://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+<script src="modal-window.js"></script>
 </body>
 </html>
