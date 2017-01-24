@@ -53,12 +53,12 @@ The quickest way to use this pattern is to copy the modal from the HTML file of 
 
 CSS styling is, of course, arbitrary. You can customize this modal to fit the design language of your project.
 
-The JavaScript interactivity of this modal relies on jQuery, which is included here for your convenience. 
+The JavaScript interactivity of this modal relies on jQuery, which is included here for your convenience.
 
 ## Configurations Tested as of Version 4.0  
-* JAWS 16.0.1925 in IE 11.0.9600.18036 in Windows 8.1: Passed - although aria-describedby is not read automatically
+* JAWS 16.0.1925 in IE 11.0.9600.18036 in Windows 8.1: Passed - although `aria-describedby` is not read automatically
 * NVDA 2015.3 in Firefox 40.0.3 in Windows 8.1: Passed
-* Window Eyes 9.2.1.0 in 11.0.9600.18036 in Windows 8.1: Passed - although the title of the modal window and the aria-describedby is not read automatically
-* VoiceOver in Safari 8.0.8 (9537.71) in OS X 10.10.5: Passed - although aria-describedby is not read automatically
+* Window Eyes 9.2.1.0 in 11.0.9600.18036 in Windows 8.1: Passed - although the title of the modal window and the `aria-describedby` is not read automatically
+* VoiceOver in Safari 8.0.8 (9537.71) in OS X 10.10.5: Passed - although `aria-describedby` is not read automatically
 * ChromeVox 45.0.2428.0 in Chrome 45.0.2454.101 in OS X 10.10.5: Passed
-* Orca 3.10.3 in Firefox 39.0 in Ubuntu 14.04: Partial Functionality - does not support aria-hidden and does not announce the aria-describedby
+* Orca 3.10.3 in Firefox 39.0 in Ubuntu 14.04: Partial Functionality - does not support aria-hidden and does not announce the `aria-describedby`
