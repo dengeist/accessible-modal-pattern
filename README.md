@@ -30,26 +30,26 @@ This pattern does the following:
   1. `<div id="mainPage></div>`
   2. `<div id="modal" role="dialog"></div>`
   3. `<div id="modalOverlay"></div>`
-* When the modal dialog is displayed, an overlay is placed over top of the mainPage so it is
-  1. visually grayed out in order to indicate you cannot interact with what is behind the window
+* Places an overlay above the `mainPage` when the modal is open, so the `mainPage`is:
+  1. visually grayed out, to indicate that the user can't interact with what is behind the window
   2. not clickable with the mouse
-* When the modal dialog is displayed, the mainPage is marked with aria-hidden="true" to prevent screen readers from interacting with it once the modal dialog is open. Additionally, the mainPage gets an even listener for any time it or any of its children receive focus. When they do receive focus, the user's focus is redirected to the modal window.
-* Keyboard access is limited to only interacting with the modal dialog once it is visible
-  1. The tab key loops through all of the keyboard focusable items within the modal window
-  2. This is determined programmatically through the DOM each time the tab key is pressed so you do not have to create an explicit list of focusable items within the modal window to keep track of
-  3. The escape key is mapped to the function to close the modal window
-  4. The enter key is mapped to the submit function of the modal window
-* The title of the modal dialog is identified through the aria-labelledby attribute.
-* The beginning of the modal dialog is marked with an h1
-* There are offscreen instructions that describe the modal dialog and how to interact with it
-  1. The instructions are attached through the aria-describedby attribute.
-  2. Only NVDA and ChromeVox automatically announce the aria-described by contents
-* The contents of the modal are wrapped in role="document". This is to aid NVDA users so they can more easily browse the contents of the modal. NVDA previously added support for fully browsing the contents of the modal, but it requires the user to switch browsing modes in NVDA. Using role="document" automatically puts the user in the mode where they can fully browse the contents.
-  1. role="document" is optional and the modal window is still fully functional to all users even when this attribute is left off.
-* Configurations Tested
-  1. JAWS 16.0.1925 in IE 11.0.9600.18036 in Windows 8.1: Passed - although aria-describedby is not read automatically
-  2. NVDA 2015.3 in Firefox 40.0.3 in Windows 8.1: Passed
-  3. Window Eyes 9.2.1.0 in 11.0.9600.18036 in Windows 8.1: Passed - although the title of the modal window and the aria-describedby is not read automatically
-  4. VoiceOver in Safari 8.0.8 (9537.71) in OS X 10.10.5: Passed - although aria-describedby is not read automatically
-  5. ChromeVox 45.0.2428.0 in Chrome 45.0.2454.101 in OS X 10.10.5: Passed
-  6. Orca 3.10.3 in Firefox 39.0 in Ubuntu 14.04: Partial Functionality - does not support aria-hidden and does not announce the aria-describedby
+* Marks the `mainPage` with `aria-hidden="true"` when the modal is open, to prevent screen readers from interacting with what is behind the modal. Additionally, the `mainPage` gets an event listener for any time it or any of its children receive focus. When they do receive focus, the user's focus is redirected to the modal window.
+* Ensures the modal has proper keyboard navigability once it is open by:
+    1. "Trapping" the keyboard in the modal, preventing unwanted escape.
+    2. Looping the tab key through the keyboard-focusable items within the modal window by determining what is in the DOM when the tab key is pressed.
+    3. Mapping the escape key to the function to close the modal window.
+    4. Mapping the enter key to the submit function of the modal window.
+* Identifies the title of the modal dialog through the `aria-labelledby` attribute.
+* Marks beginning of the modal with an `h1`.
+* Uses `aria-describedby` to provide offscreen instructions that describe the modal dialog and how to interact with it.
+    * **Note:** Only NVDA and ChromeVox automatically announce the `aria-described` by contents
+* Wraps the contents of the modal in `role="document"`. This is to aid NVDA users so they can more easily browse the contents of the modal. NVDA previously added support for fully browsing the contents of the modal, but it requires the user to switch browsing modes in NVDA. Using `role="document"` automatically puts the user in the mode where they can fully browse the contents.
+  * **Note:** `role="document" `is optional and the modal window is still fully functional to all users even when this attribute is left off.
+
+## Configurations Tested as of Version 4.0  
+* JAWS 16.0.1925 in IE 11.0.9600.18036 in Windows 8.1: Passed - although aria-describedby is not read automatically
+* NVDA 2015.3 in Firefox 40.0.3 in Windows 8.1: Passed
+* Window Eyes 9.2.1.0 in 11.0.9600.18036 in Windows 8.1: Passed - although the title of the modal window and the aria-describedby is not read automatically
+* VoiceOver in Safari 8.0.8 (9537.71) in OS X 10.10.5: Passed - although aria-describedby is not read automatically
+* ChromeVox 45.0.2428.0 in Chrome 45.0.2454.101 in OS X 10.10.5: Passed
+* Orca 3.10.3 in Firefox 39.0 in Ubuntu 14.04: Partial Functionality - does not support aria-hidden and does not announce the aria-describedby
