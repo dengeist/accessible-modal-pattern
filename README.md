@@ -1,9 +1,12 @@
 # The Incredible Accessible Modal Window
 
 ## Table of Contents
+* [What is this?](#what-is-this?)
 * [What's new in version 4?](#whats-new-in-version-4)
 * [Features](#features)
-* [How to implement](#how-to-modal)
+* [How to implement](#how-to-implement)
+
+## What is this?
 
 This page demonstrates how to make a modal window as accessible as possible to assistive technology users. Modal windows are especially problematic for screen reader users. Often times the user is able to "escape" the window and interact with other parts of the page when they should not be able to. This is partially due to the way screen reader software interacts with the Web browser.
 
@@ -13,7 +16,7 @@ This page demonstrates how to make a modal window as accessible as possible to a
 * There is now a check that when the modal window is open, detects any time the #mainPage or any of its contents receives focus and will redirect the focus to the modal window. This was necessary because of the modal window was open and you went to the address bar, if you started tabbing again you would interact with the main page.
 * Both the documentation and the [live demo](http://gdkraus.github.io/accessible-modal-dialog/) now live on GitHub.
 
-##Features
+## Features
 
 This example implements the following features:
 
