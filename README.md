@@ -17,7 +17,7 @@ This pattern demonstrates how to make a modal window as accessible as possible t
 Credit for the original pattern (and code an documentation up to version 4) to [Greg Krauss](https://github.com/gdkraus). Much of the documentation below is his, with edits by me.
 
 ## Recent changes
-This pattern has had some recent significant and minor changes.
+This section records Krauss's notes on version 4 for posterity, and for comparison to my minor changes in his code.
 ### In version 4
 
 * Due to high demand, the `role="document"` is added back to the contents of the modal. This makes it so NVDA automatically switches into document reading mode inside of the modal. NVDA had previously let you toggle the reading mode, but since many modals contain items that require document browsing mode, I've added this back in as the default.
