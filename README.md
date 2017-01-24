@@ -1,5 +1,10 @@
 # The Incredible Accessible Modal Window
 
+## Table of Contents
+* [What's new in version 4?](#whats-new-in-version-4)
+* [Features](#features)
+* [How to implement](#how-to-modal)
+
 This page demonstrates how to make a modal window as accessible as possible to assistive technology users. Modal windows are especially problematic for screen reader users. Often times the user is able to "escape" the window and interact with other parts of the page when they should not be able to. This is partially due to the way screen reader software interacts with the Web browser.
 
 ## What's New In Version 4?
