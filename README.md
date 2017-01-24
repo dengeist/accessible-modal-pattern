@@ -4,7 +4,7 @@
 * [What is this?](#what-is-this)
 * [Recent changes](#recent-changes)
     * [In version 4](#in-version-4)
-    * [In version 4.0.1](#in-version-4.0.1)
+    * [In version 4.0.2](#in-version-4.0.2)
 * [Features](#features)
 * [How to implement](#how-to-implement)
 * [Configurations tested as of version 4.0](#configurations-tested-as-of-version-4.0)
@@ -22,7 +22,7 @@ This section records Krauss's notes on version 4 for posterity, and for comparis
 * Due to high demand, the `role="document"` is added back to the contents of the modal. This makes it so NVDA automatically switches into document reading mode inside of the modal. NVDA had previously let you toggle the reading mode, but since many modals contain items that require document browsing mode, I've added this back in as the default.
 * There is now a check that when the modal window is open, detects any time the #mainPage or any of its contents receives focus and will redirect the focus to the modal window. This was necessary because of the modal window was open and you went to the address bar, if you started tabbing again you would interact with the main page.
 
-### In version 4.0.1
+### In version 4.0.2
 * The graphical escape button has been reconfigured as an `input type="image"` rather than as an `img` wrapped in a `button`.
 * The event listeners for keyboard input have been simplified.
 * The variables in the JavaScript file have been given better names, to reduce potential reader confusion.
