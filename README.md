@@ -24,6 +24,9 @@ This section records Krauss's notes on version 4 for posterity, and for comparis
 * There is now a check that when the modal window is open, detects any time the #mainPage or any of its contents receives focus and will redirect the focus to the modal window. This was necessary because of the modal window was open and you went to the address bar, if you started tabbing again you would interact with the main page.
 
 ### In version 4.0.1
+* The graphical escape button has been reconfigured as an `input type="image"` rather than as an `img` wrapped in a `button`.
+* The event listeners for keyboard input have been simplified.
+* The variables in the JavaScript file have been given better names, to reduce potential reader confusion. 
 ## Features
 
 This pattern does the following:
