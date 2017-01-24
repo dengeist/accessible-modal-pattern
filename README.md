@@ -70,4 +70,4 @@ The JavaScript interactivity of this modal relies on jQuery, which is included h
 * Orca 3.10.3 in Firefox 39.0 in Ubuntu 14.04: Partial Functionality - does not support aria-hidden and does not announce the `aria-describedby`
 
 ## How to contribute
-This project strives to be fully WCAG 2.0 and §509 compliant. Please make note of bugs and accessibility failures on [this project's issues page]().
+This project strives to be fully WCAG 2.0 and §509 compliant. Please make note of bugs and accessibility failures on [this project's issues page](https://github.com/dengeist/accessible-modal-pattern/issues). Pull requests to fix both new and existing bugs are always welcome.
