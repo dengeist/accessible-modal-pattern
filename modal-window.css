@@ -1,4 +1,4 @@
-#modalOverlay {
+#modal-overlay {
 	width:100%;
 	height:100%;
 	z-index:2; /* places the modal overlay between the main page and the modal dialog*/
@@ -29,14 +29,14 @@
 	text-align:center;
 }
 
-.modalEscButton {
+.esc-btn {
 	float:right;
 	position:absolute;
 	top:10px;
 	left:92%;
 	height:25px;
 }
-.modalEscButton img {
+.esc-btn img {
 	border:0;
 }
 

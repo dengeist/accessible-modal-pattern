@@ -7,41 +7,41 @@
 </head>
 
 <body>
-    <div id="mainPage" aria-hidden="false">
+    <div id="main-page" aria-hidden="false">
         <h1>The Incredible Accessible Modal Window, Version 4</h1>
         <p><a href="https://github.com/dengeist/accessible-modal-pattern">Get the code on GitHub</a></p>
         <p>This page demonstrates how to make a modal window as accessible as possible to assistive technology users. Modal windows are especially problematic for screen reader users. Often times the user is able to &quot;escape&quot; the window and interact with other parts of the page when they should not be able to. This is partially due to the way screen reader software interacts with the Web browser.</p>
         <h2>The Accessible Modal Window in Action</h2>
-        <p>To see this in action, you just need to <button id="startModal">view the modal window</button>. If the modal window works as planned, once the modal window is visible you should not be able to interact with other links on the main page like <a href="https://github.com/">going to the main GitHub page</a>. If you can interact with the page behind the modal window, guidance is given for how to get back to the modal window.</p>
+        <p>To see this in action, you just need to <button id="start-modal">view the modal window</button>. If the modal window works as planned, once the modal window is visible you should not be able to interact with other links on the main page like <a href="https://github.com/">going to the main GitHub page</a>. If you can interact with the page behind the modal window, guidance is given for how to get back to the modal window.</p>
     </div>
-    <div id="modal" aria-hidden="true" aria-labelledby="modalTitle" aria-describedby="modalDescription" role="dialog" hidden>
+    <div id="modal" aria-hidden="true" aria-labelledby="modal-title" aria-describedby="modal-description" role="dialog" hidden>
         <div role="document">
-         <div id="modalDescription" class="screen-reader-offscreen">Beginning of dialog window. It begins with a heading 1 called &quot;Registration Form&quot;. Escape will cancel and close the window. This form does not collect any actual information.</div>
-         <h1 id="modalTitle">Registration Form</h1>
+         <div id="modal-description" class="screen-reader-offscreen">Beginning of dialog window. It begins with a heading 1 called &quot;Registration Form&quot;. Escape will cancel and close the window. This form does not collect any actual information.</div>
+         <h1 id="modal-title">Registration Form</h1>
          <p>These are the onscreen instructions that are not attached explicitly to a focusable element. Can screen reader users read this text with the virtual cursor?</p>
          <form name="form1" onsubmit="return false;">
             <p>
-               <label for="firstName">First Name</label>
-               <input type="text" name="firstName" id="firstName">
+               <label for="first-name">First Name</label>
+               <input type="text" name="first-name" id="first-name">
            </p>
            <p>
-               <label for="lastName">Last Name</label>
-               <input type="text" name="lastName" id="lastName">
+               <label for="last-name">Last Name</label>
+               <input type="text" name="last-name" id="last-name">
            </p>
            <p>
                <label for="email">Email Address</label>
                <input type="text" name="email" id="email">
            </p>
            <p>
-               <input type="button" name="button" id="enterBtn" value="Submit">
-               <input type="button" name="cancelBtn" id="cancelBtn" value="Cancel">
+               <input type="button" name="button" id="enter-btn" value="Submit">
+               <input type="button" name="cancel-btn" id="cancel-btn" value="Cancel">
            </p>
-           <input type="image" src="x.png" alt="Close registration form" id="modalEscButton" class="modalEscButton" title="Close registration form">
+           <input type="image" src="x.png" alt="Close registration form" id="esc-btn" class="esc-btn" title="Close registration form">
 
        </form>
    </div>
 </div>
-<div id="modalOverlay" tabindex="-1"></div>
+<div id="modal-overlay" tabindex="-1"></div>
 
 <script
   src="http://code.jquery.com/jquery-1.12.4.min.js"

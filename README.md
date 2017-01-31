@@ -20,7 +20,7 @@ This section records Krauss's notes on version 4 for posterity, and for comparis
 ### In version 4
 
 * Due to high demand, the `role="document"` is added back to the contents of the modal. This makes it so NVDA automatically switches into document reading mode inside of the modal. NVDA had previously let you toggle the reading mode, but since many modals contain items that require document browsing mode, I've added this back in as the default.
-* There is now a check that when the modal window is open, detects any time the #mainPage or any of its contents receives focus and will redirect the focus to the modal window. This was necessary because of the modal window was open and you went to the address bar, if you started tabbing again you would interact with the main page.
+* There is now a check that when the modal window is open, detects any time the #main-page or any of its contents receives focus and will redirect the focus to the modal window. This was necessary because of the modal window was open and you went to the address bar, if you started tabbing again you would interact with the main page.
 
 ### In version 4.0.3
 * The graphical escape button has been reconfigured as an `input type="image"` rather than as an `img` wrapped in a `button`.
@@ -34,13 +34,13 @@ This section records Krauss's notes on version 4 for posterity, and for comparis
 This pattern does the following:
 
 * Divides the page into three sections:
-  1. `<div id="mainPage></div>`
+  1. `<div id="main-page></div>`
   2. `<div id="modal" role="dialog"></div>`
-  3. `<div id="modalOverlay"></div>`
-* Places an overlay above the `mainPage` when the modal is open, so the `mainPage`is:
+  3. `<div id="modal-overlay"></div>`
+* Places an overlay above the `main-page` when the modal is open, so the `main-page`is:
   1. visually grayed out, to indicate that the user can't interact with what is behind the window
   2. not clickable with the mouse
-* Marks the `mainPage` with `aria-hidden="true"` when the modal is open, to prevent screen readers from interacting with what is behind the modal. Additionally, the `mainPage` gets an event listener for any time it or any of its children receive focus. When they do receive focus, the user's focus is redirected to the modal window.
+* Marks the `main-page` with `aria-hidden="true"` when the modal is open, to prevent screen readers from interacting with what is behind the modal. Additionally, the `main-page` gets an event listener for any time it or any of its children receive focus. When they do receive focus, the user's focus is redirected to the modal window.
 * Ensures the modal has proper keyboard navigability once it is open by:
     1. "Trapping" the keyboard in the modal, preventing unwanted escape.
     2. Looping the tab key through the keyboard-focusable items within the modal window by determining what is in the DOM when the tab key is pressed.

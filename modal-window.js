@@ -37,13 +37,13 @@
 /* Set of functions for handling modal behavior */
 
 function showModal(obj) {
-    jQuery('#mainPage').prop({'aria-hidden': true}); // mark the main page as hidden
-    jQuery('#modalOverlay').css('display', 'block'); // insert an overlay to prevent clicking and make a visual change to indicate the main apge is not available
+    jQuery('#main-page').prop({'aria-hidden': true}); // mark the main page as hidden
+    jQuery('#modal-overlay').css('display', 'block'); // insert an overlay to prevent clicking and make a visual change to indicate the main apge is not available
     jQuery('#modal').css('display', 'block'); // make the modal window visible
     jQuery('#modal').prop({'aria-hidden': false, 'hidden': false}); // mark the modal window as visible
 
     // attach a listener to redirect the tab to the modal window if the user somehow gets out of the modal window
-    jQuery('body').on('focusin','#mainPage',function() {
+    jQuery('body').on('focusin','#main-page',function() {
         setFocusToFirstItemInModal(jQuery('#modal'));
     });
     // save current focus
@@ -106,7 +106,7 @@ function trapEscapeKey(obj, evt) {
 
     // get list of focusable items
     var escElement;
-    escElement = o.filter("#modalEscButton");
+    escElement = o.filter("#esc-btn");
 
     // close the modal window
     escElement.click();
@@ -121,13 +121,13 @@ function handleSubmit() {
 }
 
 function hideModal() {
-    jQuery('#modalOverlay').css('display', 'none'); // remove the overlay in order to make the main screen available again
+    jQuery('#modal-overlay').css('display', 'none'); // remove the overlay in order to make the main screen available again
     jQuery('#modal').css('display', 'none'); // hide the modal window
     jQuery('#modal').prop({'aria-hidden': true, 'hidden': true}); // mark the modal window as hidden
-    jQuery('#mainPage').prop({'aria-hidden': false}); // mark the main page as visible
+    jQuery('#main-page').prop({'aria-hidden': false}); // mark the main page as visible
 
     // remove the listener which redirects tab keys in the main content area to the modal
-    jQuery('body').off('focusin','#mainPage');
+    jQuery('body').off('focusin','#main-page');
 
     // set focus back to element that had it before the modal was opened
     focusedElementBeforeModal.focus();
@@ -143,17 +143,17 @@ var focusedElementBeforeModal;
 
 jQuery(function() {
 
-    jQuery('#startModal').click(function(e) {
+    jQuery('#start-modal').click(function(e) {
         showModal(jQuery('#modal'));
     });
 
-    jQuery('#cancelBtn').click(function(e) {
+    jQuery('#cancel-btn').click(function(e) {
         hideModal();
     });
-    jQuery('#enterBtn').click(function(e) {
+    jQuery('#enter-btn').click(function(e) {
         handleSubmit();
     });
-    jQuery('#modalEscButton').click(function(e) {
+    jQuery('#esc-btn').click(function(e) {
         hideModal();
     });
     jQuery('#modal').keydown(function(event) {
