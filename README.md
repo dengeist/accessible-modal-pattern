@@ -17,17 +17,18 @@ The original pattern (and code an documentation up to version 4) can be found [o
 
 ## Recent changes
 This section records Krauss's notes on version 4 for posterity, and for comparison to my minor changes in his code.
-### In version 4
+### In version 4.0.2
 
 * Due to high demand, the `role="document"` is added back to the contents of the modal. This makes it so NVDA automatically switches into document reading mode inside of the modal. NVDA had previously let you toggle the reading mode, but since many modals contain items that require document browsing mode, I've added this back in as the default.
 * There is now a check that when the modal window is open, detects any time the #main-page or any of its contents receives focus and will redirect the focus to the modal window. This was necessary because of the modal window was open and you went to the address bar, if you started tabbing again you would interact with the main page.
 
-### In version 4.0.3
+### In version 4.0.3+
 * The graphical escape button has been reconfigured as an `input type="image"` rather than as an `img` wrapped in a `button`.
 * The event listeners for keyboard input have been simplified.
 * The variables in the JavaScript file have been given better names, to reduce potential reader confusion.
 * This readme now has a table of contents for better usability.
 * The copy in the example modal and this readme have been edited for clarity.
+* Ids and classes on elements now use dashes instead of camel-case, for better HTML convention and separation from JavaScript code.
 
 ## Features
 
