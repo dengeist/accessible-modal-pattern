@@ -37,10 +37,18 @@
 	height:25px;
 }
 
-.screen-reader-offscreen {
-	position:absolute;
-	left:-999px;
-	width:1px;
-	height:1px;
-	top:auto;
+/*
+   Visually hide elements, but leave them available to screen readers.
+   Courtesy: h5bp.com
+ */
+
+.visually-hidden {
+    border:0;
+    clip:rect(0 0 0 0);
+    height:1px;
+    margin:-1px;
+    overflow:hidden;
+    padding:0;
+    position:absolute;
+    width:1px;
 }
